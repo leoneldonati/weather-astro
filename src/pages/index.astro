@@ -1,16 +1,41 @@
 ---
-
+import CitySelector from '../components/city-selector'
+import WeatherInfo from '../components/weather-info'
+import Aside from '../components/aside'
 ---
-
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Aplicacion para visualizar el clima, creada y mantenida por @leonelweb. Islas interactivas creadas con Astro y React.">
+	<title>Aplicacion de clima</title>
+</head>
+<body>
+
+	<main>
+		
+		<Aside client:visible/>
+		<WeatherInfo client:visible/>
+		<CitySelector client:visible />
+
+	</main>
+
+
+</body>
 </html>
+
+<style>
+	main {
+		min-height: 100vh;
+		padding: 15px;
+		display: grid;
+		grid-template-areas:
+		"aside weather"
+		"selector selector" 
+		;
+		grid-template-columns: 300px 1fr;
+		grid-template-rows: 1fr 100px;
+		gap: 10px;
+	}
+</style>
